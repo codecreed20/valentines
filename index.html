@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+    #noButton {
+      background-color: #ff6666;
+      color: #fff;
+    }
+
+    #yesButton {
+      background-color: #66cc66;
+      color: #fff;
+    }
+
+    #message {
+      display: none;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const noButton = document.getElementById('noButton');
+      const yesButton = document.getElementById('yesButton');
+      const message = document.getElementById('message');
+
+      noButton.addEventListener('mouseover', function () {
+        // Move the NO button to a random position on the screen
+        const maxX = window.innerWidth - noButton.offsetWidth;
+        const maxY = window.innerHeight - noButton.offsetHeight;
+        const newX = Math.floor(Math.random() * maxX);
+        const newY = Math.floor(Math.random() * maxY);
+
+        noButton.style.position = 'absolute';
+        noButton.style.left = newX + 'px';
+        noButton.style.top = newY + 'px';
+      });
+
+      yesButton.addEventListener('click', function () {
+        // Display the message
+        message.style.display = 'block';
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="container">
+    <h2>Will you be my Valentine?</h2>
+    <button id="noButton">NO</button>
+    <button id="yesButton">YES</button>
+    <div id="message">I knew you would say yes!</div>
+  </div>
+</body>
+</html>
